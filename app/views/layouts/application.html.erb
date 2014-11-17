@@ -7,8 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+	<header>
+		<h1>Valde Group Media - Art Department </h1>
+		<span class="headerLinks">
+			<a href="#">About Us</a> |
+			<a href="#">Products</a> |
+			<a href="#">Checkout</a>
+		</span>
+	</header>
 <%= yield %>
-
+	<footer>
+		<p>&copy;Valde Group Media <%=Time.now.year%></p>
+	</footer>
 </body>
 </html>
