@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+body {
+	margin: 1%;
+}
+
+.headerLinks {
+	float:right;
+	margin-right: 5%;
+}
+
+footer {
+	margin-top: 30%;
+}
