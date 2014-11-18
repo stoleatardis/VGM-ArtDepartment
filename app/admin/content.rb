@@ -1,6 +1,6 @@
-ActiveAdmin.register Product do
+ActiveAdmin.register Content do
 
-permit_params :name, :description, :price, :stock_quantity, :image, :category_id
+permit_params :about
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -13,16 +13,6 @@ permit_params :name, :description, :price, :stock_quantity, :image, :category_id
   #   permitted << :other if resource.something?
   #   permitted
   # end
-form :html => {:multipart => true} do |f|
-  f.inputs "Product Details" do
-    f.input :name
-    f.input :description
-    f.input :price
-    f.input :stock_quantity
-    f.input :category
-    f.input :image
-  end
-  f.actions
-end
+
 
 end
