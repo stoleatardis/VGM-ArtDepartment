@@ -8,8 +8,11 @@
 
 <div class = "product">
 	<%=image_tag @products.image%>
-	<p>random painting</p>
-	
+	<% if @products.category.present? %>
+    	<p><%= @products.category.name %></p>
+  	<% else %>
+    	<p>No Category Assigned</p>
+  	<% end %>
 </div>
 
 <div class = "product">
