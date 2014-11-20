@@ -1,1 +1,8 @@
-<p>fuckoff</p>
+	<div class = "individual_product">
+		<%=image_tag @product.image%>
+		<% if @product.category.present? %>
+	    	<p><%=@product.category.name %></p>
+	  	<% else %>
+	    	<p>No Category Assigned</p>
+	  	<% end %>
+	</div>

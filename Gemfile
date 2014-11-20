@@ -42,3 +42,5 @@ gem 'activeadmin', github:'activeadmin'
 gem 'devise'
 
 gem 'carrierwave'
+
+gem 'slim'
