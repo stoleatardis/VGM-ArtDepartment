@@ -7,6 +7,6 @@ class ProductsController < ApplicationController
 	end
 
 	def prints
-		@products = Product.where("category_id = 1")
+		@products = Product.where("category_id = 2")
 	end
 end
