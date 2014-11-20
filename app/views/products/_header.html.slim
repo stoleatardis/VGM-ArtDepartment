@@ -1,0 +1,6 @@
+div
+	ul class="nav nav-tabs"
+		li = link_to 'View All', products_path
+
+		-@categories.each do |c|
+			li = link_to c.name, products_in_category_path(c) 

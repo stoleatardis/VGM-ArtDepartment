@@ -1,0 +1,6 @@
+div class = "individual_product"
+	= image_tag @product.image
+	p = @product.name 
+	p = @product.description
+	p = number_to_currency(@product.price)
+

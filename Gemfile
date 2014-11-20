@@ -43,4 +43,6 @@ gem 'devise'
 
 gem 'carrierwave'
 
-gem 'slim'
+gem 'slim-rails'
+
+gem 'kaminari'

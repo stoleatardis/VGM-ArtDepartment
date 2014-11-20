@@ -25,4 +25,10 @@ form :html => {:multipart => true} do |f|
   f.actions
 end
 
+index do 
+  id_column
+  column :name
+  actions
+end
+
 end

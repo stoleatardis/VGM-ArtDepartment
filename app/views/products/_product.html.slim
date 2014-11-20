@@ -1,0 +1,8 @@
+	= image_tag product.image
+
+	- if product.category.present?
+		p = product.category.name
+	- else
+		p No Category Assigned
+
+	p = link_to 'Show', product

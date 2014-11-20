@@ -1,0 +1,7 @@
+= render 'header'
+
+- @products.each do |product| 
+	div class = "product"
+		= render product 
+
+= paginate @products
