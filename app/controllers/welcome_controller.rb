@@ -6,4 +6,8 @@ class WelcomeController < ApplicationController
 	def about
 		@content = Content.find(1)
 	end
+
+	def contact
+		@about = Contact.find(1)
+	end
 end
