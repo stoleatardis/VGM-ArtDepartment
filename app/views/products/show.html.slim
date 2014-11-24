@@ -1,6 +1,12 @@
 div class = "individual_product"
 	= image_tag @product.image
-	p = @product.name 
-	p = @product.description
-	p = number_to_currency(@product.price)
+	p
+		= @product.name 
+		br
+	 	= @product.description 
+	 	br
+	    = number_to_currency(@product.price)
+	    br
+	    = @product.stock_quantity 
+		|  are in stock
 

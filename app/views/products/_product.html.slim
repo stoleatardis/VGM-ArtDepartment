@@ -1,8 +1,13 @@
 	= image_tag product.image
 
-	- if product.category.present?
-		p = product.category.name
-	- else
-		p No Category Assigned
+	p 
+		= link_to product.name, product
+		br
+	    = number_to_currency(product.price)
+	    br
+	    | Currently 
+	    = product.stock_quantity 
+		|  are in stock
 
-	p = link_to 'Show', product
+	form
+		button class="btn btn-sm btn-default" Add to Cart
