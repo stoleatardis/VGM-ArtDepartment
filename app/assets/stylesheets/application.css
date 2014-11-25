@@ -13,25 +13,3 @@
  *= require_tree .
  *= require_self
  */
-html {
-	margin:0;
-	padding:0;
-}
-
-#container {
-	margin-left:1%;
-}
-
-#search {
-	margin-left: 1%;
-}
-
-.product {
-	border: gray 1px solid;
-	padding: .5%;
-	width: 30%;
-	margin: 1% 1% 1%;
-	background-color: #FFF;
-	float:left;
-  	box-shadow: 1px 1px 1px black;
-}
