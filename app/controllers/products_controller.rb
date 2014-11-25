@@ -13,4 +13,9 @@ class ProductsController < ApplicationController
 		@products = Category.find(params[:id]).products.order("name").page(params[:page]).per(6)
 		render:index
 	end
+
+	def search_results
+		wildcard_keywords = "%#{params[:keyword_search]}%"
+		@products = Product.where('name LIKE ?', wildcard_keywords)
+	end
 end

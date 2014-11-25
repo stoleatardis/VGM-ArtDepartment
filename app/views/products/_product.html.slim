@@ -1,13 +1,23 @@
 	= image_tag product.image
 
-	p 
-		= link_to product.name, product
-		br
-	    = number_to_currency(product.price)
-	    br
-	    | Currently 
-	    = product.stock_quantity 
-		|  are in stock
+	- if product.stock_quantity.zero?
+		p
+			= link_to product.name, product
+			br
+			= number_to_currency(product.price) 
+			br
+			| This item is currently unavailable.
+			br
+			| Please try again another day.
+	-else	
+		p 
+			= link_to product.name, product
+			br
+		    = number_to_currency(product.price)
+		    br
+		    | Currently 
+		    = product.stock_quantity 
+			|  are in stock
 
-	form
-		button class="btn btn-sm btn-default" Add to Cart
+		form
+			button class="btn btn-sm btn-default" Add to Cart

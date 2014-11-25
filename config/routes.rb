@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get 'products' => 'products#index', as:'products'
   get 'products/:id' => 'products#show',  as: 'product'
   get 'categories/:id/products' => 'products#products_in_category', as: 'products_in_category'
+
+  get 'search' => 'products#search_results', as: 'search_results'
 end

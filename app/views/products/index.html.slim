@@ -1,8 +1,10 @@
+= render 'search'
 = render 'header'
 
-- @products.each do |product| 
-	div class = "product"
-		= render product 
+div class="row"
+	- @products.each do |product|
+		div class = "col-md-3"
+			= render product 
 
 div class="paginate"
 	= paginate @products
