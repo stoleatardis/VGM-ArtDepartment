@@ -3,4 +3,4 @@ div
 		li = link_to 'View All', products_path
 
 		-@categories.each do |c|
-			li = link_to c.name, products_in_category_path(c) 
+			li = link_to c.name + 's', products_in_category_path(c) 

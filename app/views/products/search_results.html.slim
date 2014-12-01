@@ -1,11 +1,16 @@
+= render 'search'
+= render 'header'
+
 h2 
 	| Search results for "
    	= params[:keyword_search]
    	|"
 
 -if @products.size.zero?
-	p nada
+	p No products found
 -else
-	- @products.each do |product| 
-		div class = "product"
-			= render product 
+	div class="row text-center"
+		- @products.each do |product|
+			div class="col-md-4"
+				div class="thumbnail"
+					= render product 

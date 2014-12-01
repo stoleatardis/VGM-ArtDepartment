@@ -1,5 +1,7 @@
 	= image_tag product.image
 
+	p 
+
 	- if product.stock_quantity.zero?
 		p
 			= link_to product.name, product
@@ -17,7 +19,7 @@
 		    br
 		    | Currently 
 		    = product.stock_quantity 
-			|  are in stock
+			|  in stock
 
 		form
 			button class="btn btn-sm btn-default" Add to Cart
