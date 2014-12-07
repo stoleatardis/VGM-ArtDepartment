@@ -1,11 +1,12 @@
 = render 'search'
 = render 'header'
 
-div class="row text-center"
-	- @products.each do |product|
-		div class="col-md-4"
-			div class="thumbnail"
-				= render product 
+div class="products_page"
+	div class="row text-center"
+		- @products.each do |product|
+			div class="col-md-4"
+				div class="thumbnail"
+					= render product 
 
-div class="paginate"
-	= paginate @products
+	div class="paginate"
+		= paginate @products

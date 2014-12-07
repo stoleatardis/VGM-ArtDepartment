@@ -9,6 +9,11 @@ html
     == csrf_meta_tags
 
   body
-    == render 'navigation'
-    div id="container"
-      == yield
+  	header
+   		== render 'navigation'
+    main id="container"
+     	== yield
+
+    footer 
+    	div 
+    		p &copy; Valde Group Media 2014

@@ -2,3 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$font-stack: Calibri, Candara, Segoe, "Segoe UI", Optima,Arial, sans-serif;
+
+main {
+	width: 75%;
+	margin: auto auto;
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	p { 
+		font-family: $font-stack;
+		font-size: 100%;
+	}
+
+	.favourite-products {
+		text-align: center;
+		width: 100%;
+	}
+}
+
+footer {
+	width: 100%;
+	margin-top:5%;
+}

@@ -1,6 +1,10 @@
 p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend dolor sit amet tortor ornare, eu commodo mauris cursus. Pellentesque est nibh, varius ac lectus eget, laoreet tempor magna. Aliquam ut malesuada ante. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse dolor felis, consectetur et leo et, vehicula ornare purus. Nam porta porta sollicitudin. Mauris placerat lorem in metus rutrum sagittis. Praesent sit amet ligula dolor. Maecenas nec dignissim turpis. 		
 
-div 
+div class="favourite-products"
+	h2 Here are some of our personal favourite products...
+
+div class="row text-center"
 	- @products.each do |product|
-		div
-			= render product 
+		div class="col-md-4"
+			div class="thumbnail"
+				= render product 
