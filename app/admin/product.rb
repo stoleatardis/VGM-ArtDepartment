@@ -28,6 +28,7 @@ end
 index do 
   id_column
   column :name
+  column :stock_quantity
   actions
 end
 

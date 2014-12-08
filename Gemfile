@@ -46,5 +46,3 @@ gem 'carrierwave'
 gem 'slim-rails'
 
 gem 'kaminari'
-
-gem 'rubocop'

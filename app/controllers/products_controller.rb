@@ -26,5 +26,14 @@ class ProductsController < ApplicationController
 	end
 
 	def checkout
+		
+	end
+
+	def customer_checkout
+		@id = Product.find(params[:id].to_i).id
+		@current_stock_quantity = Product.find(@id).stock_quantity - 1
+		Product.update(@id, :stock_quantity => @current_stock_quantity)
+		session.delete(:product_in_cart) 
+		redirect_to products_path
 	end
 end
