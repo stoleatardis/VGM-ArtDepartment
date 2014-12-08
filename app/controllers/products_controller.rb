@@ -19,4 +19,12 @@ class ProductsController < ApplicationController
 		wildcard_keywords = "%#{params[:keyword_search]}%"
 		@products = Product.where('name LIKE ?', wildcard_keywords)
 	end
+
+	def add_product_to_cart
+		session[:product_in_cart] = params[:id].to_i
+		redirect_to :back
+	end
+
+	def checkout
+	end
 end

@@ -10,5 +10,9 @@ Rails.application.routes.draw do
   get 'products/:id' => 'products#show',  as: 'product'
   get 'categories/:id/products' => 'products#products_in_category', as: 'products_in_category'
 
+  get 'cart' => 'products#checkout', as: 'checkout'
+
+  post 'add_to_cart/:id' => 'products#add_product_to_cart', as: 'add_to_cart'
+
   get 'search' => 'products#search_results', as: 'search_results'
 end

@@ -17,9 +17,11 @@
 			br
 		    = number_to_currency(product.price)
 		    br
-		    | Currently 
 		    = product.stock_quantity 
 			|  in stock
 
-		form
-			button class="btn btn-sm btn-default checkout-button" Add to Cart
+		- if product.in_cart?(session)
+			p This product is already in your cart!
+		-else
+			form
+				span class="btn btn-sm btn-default checkout-button" = link_to 'Add to Cart', add_to_cart_path(product), method: :post
