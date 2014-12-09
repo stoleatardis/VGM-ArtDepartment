@@ -17,7 +17,13 @@ class ProductsController < ApplicationController
 	def search_results
 		@categories = Category.all
 		wildcard_keywords = "%#{params[:keyword_search]}%"
-		@products = Product.where('name LIKE ?', wildcard_keywords)
+
+		if params[:category].present? 
+			@products = Category.find_by_id(params[:category]).products.where('name LIKE ? or description LIKE ?', wildcard_keywords, wildcard_keywords)
+		else
+			@products = Product.where('name LIKE ?', wildcard_keywords)
+		end
+
 	end
 
 	def add_product_to_cart

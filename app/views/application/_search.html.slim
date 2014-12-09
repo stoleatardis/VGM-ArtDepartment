@@ -1,4 +1,7 @@
 div id="search"
 	= form_tag(search_results_path, method: "get") do
-		= text_field_tag(:keyword_search, nil, placeholder:'Enter your search') 
+		= text_field_tag(:keyword_search, nil, placeholder:'Enter your search')
+
+		= select_tag 'category', options_from_collection_for_select(@categories, 'id', 'name'), prompt: 'All Categories'
+
     	= submit_tag("Search")

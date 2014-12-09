@@ -6,6 +6,15 @@ h2
    	= params[:keyword_search]
    	|"
 
+h2 
+	| Searching in "
+	- if params[:category].present? 
+		= @categories.find(params[:category]).name
+	- else
+		| All Categories
+	| "
+
+
 -if @products.size.zero?
 	p No products found
 -else

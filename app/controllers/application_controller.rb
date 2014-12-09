@@ -4,7 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 	before_action :load_cart
+
   	private
+
 	def load_cart
 		if session[:product_in_cart]
 			@product_in_cart = Product.find(session[:product_in_cart])
