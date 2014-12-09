@@ -1,5 +1,17 @@
-p
-	= @id
+-flash.each do |key, message|
+	h2 == message
 
-p
-	= @current_stock_quantity
+h3 Please enter your personal details
+
+div
+	= form_tag(search_results_path, method: "get") do
+		ul
+			li = text_field_tag(:name, nil, placeholder:'Enter your name')
+			li = text_field_tag(:email, nil, placeholder:'Enter your email')
+			li = text_field_tag(:address, nil, placeholder:'Enter your address')
+			li = text_field_tag(:city, nil, placeholder:'Enter your city')
+			li = select_tag 'province', options_from_collection_for_select(@provinces, 'id', 'name'), prompt: 'Your Province'
+			li = text_field_tag(:postalcode, nil, placeholder:'Enter your postal code')
+			li = submit_tag("Submit")
+	p
+		= link_to 'Return to Home', root_path

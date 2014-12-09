@@ -36,10 +36,18 @@ class ProductsController < ApplicationController
   end
 
   def customer_checkout
+    @provinces = Province.all
+
     @id = Product.find(params[:id].to_i).id
-    @current_stock_quantity = Product.find(@id).stock_quantity - 1
-    Product.update(@id, stock_quantity: @current_stock_quantity)
-    session.delete(:product_in_cart)
-    redirect_to products_path
+    # @current_stock_quantity = Product.find(@id).stock_quantity - 1
+    # Product.update(@id, stock_quantity: @current_stock_quantity)
+    flash.now[:notice] = 'Purchasing ' + Product.find(@id).name
+    # session.delete(:product_in_cart)
+
+    add_customer_to_database
+  end
+
+  def add_customer_to_database
+
   end
 end
