@@ -37,7 +37,6 @@ class ProductsController < ApplicationController
 
   def customer_checkout
     @provinces = Province.all
-
     @id = Product.find(params[:id].to_i).id
     # @current_stock_quantity = Product.find(@id).stock_quantity - 1
     # Product.update(@id, stock_quantity: @current_stock_quantity)
@@ -48,6 +47,5 @@ class ProductsController < ApplicationController
   end
 
   def add_customer_to_database
-
   end
 end
