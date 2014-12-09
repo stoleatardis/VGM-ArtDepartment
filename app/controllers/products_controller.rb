@@ -1,45 +1,45 @@
 class ProductsController < ApplicationController
-	def index 
-		@products = Product.order("name").page(params[:page]).per(6)
-		@categories = Category.all
-	end
+  def index
+    @products = Product.order('name').page(params[:page]).per(6)
+    @categories = Category.all
+  end
 
-	def show
-		@product = Product.find(params[:id])
-	end
+  def show
+    @product = Product.find(params[:id])
+  end
 
-	def products_in_category
-		@categories = Category.all
-		@products = Category.find(params[:id]).products.order("name").page(params[:page]).per(6)
-		render:index
-	end
+  def products_in_category
+    @categories = Category.all
+    @products = Category.find(params[:id]).products.order('name')
+                .page(params[:page]).per(6)
+    render :index
+  end
 
-	def search_results
-		@categories = Category.all
-		wildcard_keywords = "%#{params[:keyword_search]}%"
+  def search_results
+    @categories = Category.all
+    wildcard_keywords = "%#{params[:keyword_search]}%"
+    if params[:category].present?
+      @products = Category.find_by_id(params[:category])
+                  .products.where('name LIKE ? or description LIKE ?',
+                                  wildcard_keywords, wildcard_keywords)
+    else
+      @products = Product.where('name LIKE ?', wildcard_keywords)
+    end
+  end
 
-		if params[:category].present? 
-			@products = Category.find_by_id(params[:category]).products.where('name LIKE ? or description LIKE ?', wildcard_keywords, wildcard_keywords)
-		else
-			@products = Product.where('name LIKE ?', wildcard_keywords)
-		end
+  def add_product_to_cart
+    session[:product_in_cart] = params[:id].to_i
+    redirect_to :back
+  end
 
-	end
+  def checkout
+  end
 
-	def add_product_to_cart
-		session[:product_in_cart] = params[:id].to_i
-		redirect_to :back
-	end
-
-	def checkout
-		
-	end
-
-	def customer_checkout
-		@id = Product.find(params[:id].to_i).id
-		@current_stock_quantity = Product.find(@id).stock_quantity - 1
-		Product.update(@id, :stock_quantity => @current_stock_quantity)
-		session.delete(:product_in_cart) 
-		redirect_to products_path
-	end
+  def customer_checkout
+    @id = Product.find(params[:id].to_i).id
+    @current_stock_quantity = Product.find(@id).stock_quantity - 1
+    Product.update(@id, stock_quantity: @current_stock_quantity)
+    session.delete(:product_in_cart)
+    redirect_to products_path
+  end
 end
