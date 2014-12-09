@@ -4,7 +4,7 @@
 h3 Please enter your personal details
 
 div
-	= form_tag(search_results_path, method: "get") do
+	= form_tag(create_customer_invoice_path, method: "post") do
 		ul
 			li = text_field_tag(:name, nil, placeholder:'Enter your name')
 			li = text_field_tag(:email, nil, placeholder:'Enter your email')

@@ -1,0 +1,38 @@
+h3 Your invoice is as follows
+
+div
+	p
+		= @new_customer.name
+		br
+		= @new_customer.address
+		br
+		= @new_customer.city
+		br
+		= @new_customer.province.name
+		br
+		= @new_customer.postalcode
+
+div class="invoice"
+	p
+		= render 'productinvoice'
+		br
+		span class="bold" Subtotal: 
+		= @subtotal
+		br
+		- unless @new_customer.province.gst.zero?
+			| GST: 
+			= @gst
+		br
+		- unless @new_customer.province.pst.zero?
+			| PST: 
+			= @pst
+		br
+		- unless @new_customer.province.hst.zero? 
+			| HST: 
+			= @hst
+		br
+		span class="bold" Total: 
+		= @total
+
+	= form_tag(purchase_path, method: "post") do
+		= submit_tag("Purchase")

@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
   post 'add_to_cart/:id' => 'products#add_product_to_cart', as: 'add_to_cart'
 
+  post 'create_customer_invoice' => 'products#create_customer_invoice', as:'create_customer_invoice'
+
+  post 'purchase' => 'products#purchase_product', as: 'purchase'
+
   get 'customer_checkout/:id' => 'products#customer_checkout', as: 'customer_checkout'
 
   get 'search' => 'products#search_results', as: 'search_results'

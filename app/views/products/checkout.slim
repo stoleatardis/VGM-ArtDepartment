@@ -1,10 +1,8 @@
 h1 Cart
 
 p
-	= @product_in_cart.name 
-	|  x 1 = 
-	= @product_in_cart.price
+	= render 'productinvoice'
 
 form role="form"
 	div
-		span type="submit" class="btn btn-default" == link_to 'Purchase', customer_checkout_path(@product_in_cart)
+		span type="submit" class="btn btn-default" == link_to 'Continue', customer_checkout_path(@product_in_cart)
